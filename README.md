@@ -16,7 +16,7 @@ Inspect deployment and wait for it to become ready:
 make get-deploy
 ```
 
-Verify also the the pod is ready:
+Verify also that the pod is ready:
 
 ```bash
 make get-pods

@@ -1,10 +1,10 @@
 help: ## Display this help screen
 	@grep -h -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-deploy: ## Deploy a vLLM k8s deployment and service
+deploy-vllm: ## Deploy a vLLM k8s deployment and service
 	@kubectl apply -f ./manifests/vllm-deployment.yaml
 
-delete: ## Delete the vLLM k8s deployment and service from cluster
+delete-vllm: ## Delete the vLLM k8s deployment and service from cluster
 	@kubectl delete svc vllm-service -n vllm && \
 	kubectl delete deploy vllm-deploy -n vllm
 

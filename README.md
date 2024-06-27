@@ -2,6 +2,32 @@
 
 This repo deploys a vLLM OpenAI Inference Server on kubernetes.
 
+## Deploy vLLM
+
+To deploy the vLLM OpenAI Inference Server run the following command:
+
+```bash
+make deploy-vllm
+```
+
+Inspect deployment and wait for it to become ready:
+
+```bash
+make get-deploy
+```
+
+Verify also the the pod is ready:
+
+```bash
+make get-pods
+```
+
+Obtain the service endpoint:
+
+```bash
+make get-svc
+```
+
 ## Query endpoint
 
 See below examples of how to query the service endpoint:
@@ -27,4 +53,12 @@ curl <k8s_service_ip>:80/v1/chat/completions \
             {"role": "user", "content": "Who won the world series in 2020?"}
         ]
     }'
+```
+
+## Delete deployment
+
+To delete the deployment simply run:
+
+```bash
+make delete-vllm
 ```
